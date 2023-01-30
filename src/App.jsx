@@ -1,13 +1,9 @@
-import Post from "./components/Post";
+import PostsList from "./components/PostsList";
 
 function App() {
   return (
     <main>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <PostsList></PostsList>
     </main> // Must return one root element - cannot return multiple elements
   );
 }

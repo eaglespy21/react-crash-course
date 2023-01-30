@@ -1,0 +1,33 @@
+import { useState } from "react"; //React hooks
+import classes from "./NewPost.module.css";
+
+function NewPost() {
+  // React uses a declarative approach not an imperitve approach
+  // Lots of function pointer usage in javascript
+  const [enteredBody, setEnteredBody] = useState("");
+  // Every time the state changes this function/component is called again
+  // The const is re-created
+  function changeBodyHandler(event) {
+    setEnteredBody(event.target.value);
+  }
+  return (
+    <form className={classes.form}>
+      <p>
+        <label htmlFor="body">Text</label>
+        <textarea
+          id="body"
+          required
+          rows={3}
+          onChange={changeBodyHandler}
+        ></textarea>
+      </p>
+      <p>{enteredBody}</p>
+      <p>
+        <label htmlFor="name">Your name</label>
+        <input type="text" id="name" required></input>
+      </p>
+    </form>
+  );
+}
+
+export default NewPost;
