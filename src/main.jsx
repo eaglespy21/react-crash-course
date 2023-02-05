@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Posts from "./routes/Posts.jsx";
+import Posts, { loader as postsLoader } from "./routes/Posts.jsx";
 import RootLayout from "./routes/RootLayout.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -14,6 +14,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Posts></Posts>,
+        loader: postsLoader, //Element is rendered only after this function is executed
+        //This can be avoided use react-router features
         children: [{ path: "/create-post", element: <NewPost></NewPost> }],
       },
     ],

@@ -16,3 +16,11 @@ function Posts() {
 }
 
 export default Posts;
+
+export async function loader() {
+  //Loader functions cannot manipulate state
+  const response = await fetch("http://localhost:8080/posts");
+  // Add error handling here is response code is not 200
+  const resData = await response.json();
+  return resData.posts;
+}
